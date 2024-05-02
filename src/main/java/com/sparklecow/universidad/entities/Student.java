@@ -1,5 +1,6 @@
 package com.sparklecow.universidad.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Student {
     @Column(name="first_name")
     private String firstName;
     private String lastName;
+    @JsonIgnore
     @OneToMany(mappedBy="student",cascade =  CascadeType.ALL, orphanRemoval = true)
     private List<Subject> subjects = new ArrayList<>();
 

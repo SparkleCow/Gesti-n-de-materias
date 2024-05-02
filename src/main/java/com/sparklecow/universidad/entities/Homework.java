@@ -1,5 +1,6 @@
 package com.sparklecow.universidad.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class Homework {
     private String description;
     private LocalDateTime homeworkStartAt = LocalDateTime.now();
     private LocalDateTime deadline;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "subject_id", nullable = false)
     private Subject subject;
